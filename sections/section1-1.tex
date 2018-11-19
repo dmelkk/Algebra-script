@@ -1,0 +1,315 @@
+\documentclass[../Algebra_script.tex]{subfiles}
+\begin{document}
+
+\begin{definition}{(Gruppe)}
+	Eine \textbf{Gruppe} ist eine nicht-leere Menge $G$ versehen mit einer inneren Verknüpfung $G \times G \to G, (a, b) \mapsto a \cdot b$, die folgende Axiomen genügt:
+	\begin{enumerate}
+		\item{\textbf{Asoziativität}} $\forall a, b, c \in G: (a \cdot b) \cdot c = a \cdot (b \cdot c)$
+		\item{\textbf{neutrales Element}} $\exists e \in G : \forall a \in G : a \cdot e = e \cdot a$
+		\item{\textbf{inverses Element}} $\forall a \in G \exists a^{-1} \in G : a \cdot a^{-1} = a^{-1} \cdot a = e$
+	\end{enumerate}
+	Die Gruppe $G$ heisst \textbf{kommutativ} (oder \textbf{abelsch}), falls
+	\begin{enumerate}[resume]
+		\item{\textbf{Kommutavität}} $\forall a, b \in G : a \cdot b = b \cdot a$
+	\end{enumerate} 
+\end{definition}
+
+\begin{example}{$(\mathbb{Z}, +)$}
+	\begin{itemize}
+		\item{G1:} $(a + b) + c = a + (b + c)$
+		\item{G2:} $e = 0 : 0 + a = a + 0 = a$
+		\item{G3:} $a^{-1} = -a: (-a) + a = a + (-a) = 0$
+		\item{G4:} $a + b = b + a$
+	\end{itemize}
+	$\forall a, b, c \in \mathbb{Z}$
+\end{example}
+\begin{example}{$(S_m, \circ)\; \sigma_1 \circ \sigma_2: \{1, \ldots, m\} \to \{1, \ldots, m\}$}
+
+	$S_m = \big\{ \sigma \{1, \ldots, m\} \to \{1, \ldots, m\}| \sigma - \text{Bijektiv}\big\}$
+	\begin{itemize}
+		\item{G2:} $e = id = \left(
+			\begin{array}{c}
+				1, \ldots, m\\
+				1, \ldots, m
+			\end{array}
+			\right) = (1)(2), \ldots, (m)$
+		\item{G3:} Sei $\sigma \in S_m: \sigma \circ \sigma^{-1} = e = \sigma^{-1}\circ \sigma$
+		\item{G4:} $(1\; 2)(2\; 3) \neq (2\; 3)(1\; 2)$
+	\end{itemize}
+\end{example}
+
+\begin{proposition}
+	Eine Gruppe hat die folgenden Eigenschaften:
+	\begin{enumerate}
+		\item Das neutrale Elemenet $e$ ist eindeutig bestimmt.
+		\item Das inverse Element zu $a \ in G$ ist eindeutig bestimmt.
+		\item $(a \cdot b)^{-1} = b^{-1} \cdot a^{-1}$ für alle $a, b \in G$.
+		\item Für alle $a, b \in G$ hat die Gleichung $a \cdot x = b$ eine eindeutige Lösung in $G$. Die Gleichung $y \cdot a = b$ hat eindeutige Lösung in $G$. Es gilt $x = a^{-1} \cdot b$ und $y = b \cdot a^{-1}$.
+	 \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Sei $G$ - Gruppe
+	\begin{enumerate}
+		\item Angenohmen $\exists e_1, e_2 \in G$ - Neutralelemente 
+			\[\implies e_1 = e_1 \circ e_2 = e_2 \iff e_1 = e_2\]
+		\item Angenohmen $\exists a_1, a_2$ sind inverse Elemente zu $a \in G$
+			\[\implies a_1 = a_1 \circ e = a_1 \circ (a \circ a_2) = (a_1 \circ a) \circ a_2 = e \circ a_2 = a_2 \iff a_1 = a_2\]	
+		\item \[(b^{-1} \circ a^{-1}) \circ (a \circ b) = b^{-1} \circ ((a^{-1} \circ a) \circ b) = b^{-1} \circ (e \circ b) = b^{-1} \circ b = e\]
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}{(Gruppenhomomorphismus)}
+	Sei $\phi: G_1 \to G_2$ eine Abbildung zwischen zwei Gruppen. Dann heisst $\phi$ \textbf{Gruppenhomomorphismus} falls für alle $g_1, g_2 \in G_1$:
+	\[\phi(g_1 \cdot_{G_1} g_2) = \phi(g_1) \cdot_{G_2} \phi(g_2)\]
+	Der \textbf{Kern} von $\phi$ ist die Menge
+	\[Ker(\phi) := \{g \in G_1 | \phi(g) = e_{G_2}\}\]
+	Ein bijektiver (resp. surjektiver bzw. injektiver) Gruppenhomomorphismus heisst \textbf{Isomorphismus} (resp. \textbf{Epimorphismus} bzw. \textbf{Monomorphismus}).
+\end{definition}
+
+\begin{example}{$exp: (\mathbb{R}, +) \to (\mathbb{R}^{*}, \cdot)$}
+		\[x \mapsto e^x = exp(x)\]
+		\[epx(x + y) = exp(x)exp(y)\]
+\end{example}
+
+\begin{proposition}
+	Sei $\phi: G_1 \to G_2$ ein Gruppenhomomorphismus, dann gelten:
+	\begin{enumerate}
+		\item $\phi(e_1) = e_2$
+		\item $\phi(a^{-1}) = (\phi(a))^{-1}$ für alle $a \in G_1$.
+		\item Sei $\psi: G_2 \to G_3$ ein weiterer Gruppenhomomorphismus, dann ist acuh $\psi \circ \phi: G_1 \to G_3$ ein Gruppenhomomorphismus. 
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+	\item{($\phi(e_1) = e_2$)} 
+		Sei $a \in G_1$, dann 
+		\[\begin{aligned}[]
+			\phi(a) &= \phi(a\cdot e_1) = \phi(a)\cdot \phi(e_1)\\
+			\phi(a)^{-1}\cdot \phi(a) &= \phi(a)^{-1} \cdot \phi(a) \cdot \phi(e_1)\\
+			e_2 &= e_2\cdot \phi(e_1) = \phi(e_1)
+		\end{aligned}\] 
+	\item{($\phi(a^{-1}) = (\phi(a))^{-1}$ für alle $a \in G_1$)}
+		\[\begin{aligned}[]
+			e_2 &= \phi(e_1) = \phi(a \cdot a^{-1}) = \phi(a)\cdot \phi(a^{-1})\\
+			&\implies \phi(a^{-1}) \text{ ist das inverse zu } \phi(a)
+		\end{aligned}\]
+\end{enumerate}
+\end{proof}
+
+\begin{definition}{(Untergruppe)}
+	Eine Teilmenge $H$ von $G$ heisst \textbf{Untergruppe} von $G$, wenn folgende Axiome erfüllt sind:
+	\begin{enumerate}
+		\item $a, b \in H \implies a \cdot b \in H$ (abgeschlossen unter $\cdot$).
+		\item $e \in H$.
+		\item $a \in H \implies a^{-1} \in H$. 
+	\end{enumerate}
+\end{definition}
+
+\begin{example}{$(\mathbb{Z}, +)$}
+	\[\begin{aligned}[]
+		m\mathbb{Z} &= \{a \in \mathbb{Z} | a = lm: l \in \mathbb{Z}\}\\
+		3\mathbb{Z} &= \{0, \pm 3, \pm 6, \ldots\}
+	\end{aligned}\]
+	Behauptung: $(m\mathbb{Z}, + ) \subset (\mathbb{Z}, +)$ - Untergruppe
+	\begin{itemize}
+		\item{u1: } $a_1 = l_1 m = a_2 = l_2 m \implies a_1 + a_2 = l_1 m + l_2 m = (l_1 + l_2)m$
+		\item{u2: } $0 \in m\mathbb{Z}, \text{ da } 0 = 0\cdot m$
+		\item{u3: } Sei $a = lm \in m\mathbb{Z} \implies -a = (-l)m \in \mathbb{Z}$  
+	\end{itemize}
+\end{example}
+
+\begin{example}
+	\[\begin{aligned}
+		\mathbb{Z} &\subset \mathbb{Q} \subset \mathbb{R}\\
+		(\mathbb{Z}, +) &\subset (\mathbb{Q}, +) \subset (\mathbb{R}, +)
+	\end{aligned}\]
+\end{example}
+
+\begin{example}
+	\[(S_m, \circ) \supseteq (S_{m-1}, \circ)\]
+\end{example}
+
+\begin{proposition}
+	Es sei $\phi: G_1 \to G_2$ ein Gruppenhomomorphismus.
+	\begin{enumerate}
+		\item $\ker(\phi)$ ist eine Untergruppe von $G_1$.
+		\item $\Ima(\phi)$ ist eine Untergruppe von $G_2$.
+		\item $\phi$ ist injecktiv $\iff \ker(\phi) = \{e_1\}$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+	\item{($\ker(\phi)$ ist eine Untergruppe von $G_1$)}
+		Seien $a, b \in \ker(\phi)$
+		\begin{itemize}
+			\item{u1: } D.h. $\phi(a) = e_2 = \phi(b)$
+				\[\implies \phi(a\cdot b) = \phi(a)\cdot \phi(b) = e_2 \cdot e_2 = e_2\]
+			\item{u2: } zz $e_1 \in \ker(\phi)$. Gilt $\phi(e_1) = e_2$.
+			\item{u3: } Sei $a \in \ker(\phi)$. D.h. $\phi(a) = e_2$
+				\[\phi(a^{-1} = (\phi(a))^{-1} = e_2^{-1} = e_2\]
+		\end{itemize}
+	\item{($\Ima(\phi)$ ist eine Untergruppe von $G_2$)}
+		\begin{itemize}
+			\item{u1: } Das Bild von $\phi$.
+				\[\Ima(\phi) = \{ x \in G_2 | \exists a \in G_1: \phi(a) = x\}\]
+				Seien $x, y \in \Ima(\phi)$. D.h.
+				\[\begin{aligned}
+					&\exists a_1, a_2 \in G_1 : \phi(a_1) = x, \phi(a_2) = y\\
+					\implies &x\cdot y = \phi(a_1)\cdot \phi(a_2) = \phi(a_1 \cdot a_2)\\
+					\implies &x\cdot y \in \Ima(\phi)
+				\end{aligned}\]
+		\end{itemize}
+	\item{($\phi$ ist injecktiv $\iff \ker(\phi) = \{e_1\}$)}
+		Sei $\phi$-injektiv
+		\[\implies \big(\phi(a) = \phi(b) \implies a = b \big)\]
+		\[\text{Sei} a \in \ker(\phi) \implies \phi(a) = e_2 = \phi(e_1) \implies a = e_1\]
+		\[\text{Sei} \ker(\phi) = \{e_1\}\]
+		Angenommen $\phi(a) = \phi(b)$
+		\[\begin{aligned}
+			&\implies \phi(a)\cdot \phi(b)^{-1} = e_2 \iff \phi(a \cdot b^{-1}) = e_2\\
+			&\implies a\cdot b^{-1} = e_1 \iff a = b
+		\end{aligned}\]
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	Sei $G$ eine Gruppe, $H$ eine Untergruppe von $G$. Für $g_1, g_2 \in G$ definieren wir
+	\[g_1 \equiv g_2 \pmod H : \iff g_1(g_2)^{-1} \in H\]
+	Wir sagen, dass $g_1$ \textbf{kongruent zu} $g2$ \textbf{modulo} $H$ ist.
+\end{remark}
+
+\begin{proposition}
+	Die Kongruenz modulo $H$ ist eine Äquivalenzrelation. Wir schreiben $G\setminus H$ für Menge der Äquivalenzklassen.
+\end{proposition}
+
+\begin{proposition}
+	Sei $G$ eine abelesche Gruppe. Dann ist $G\setminus H$ eine abelesche Gruppe mit der Verknüpfung
+	\[+ : G\setminus H \times G\setminus H, ([g_1],[g_2]) \mapsto [g_1] + [g_2] := [g_1 + g_2]\]
+\end{proposition}
+
+\begin{lemma}
+	Sei $G$ eine abelescha Gruppe, $H \subseteq G$ eine Untergruppe. Die Abbildung
+	\[\pi : G \to G\setminus G, g \mapsto [g]\]
+	ist ein surjektiver Gruppenhomomorphismus mit $\ker(\pi) = H$
+\end{lemma}
+
+\begin{corollary}
+	$\mathbb{Z} \setminus m\mathbb{Z}$ ist eine abelesche Gruppe für jedes $m \in \mathbb{Z}$ und besteht aus $m$ paarweise verschiedene Restklassen.
+\end{corollary}
+
+\begin{definition}{(Normalteiler)}
+	Eine Untergruppe $N \subseteq G$ heisst \textbf{Normalteiler} von $G$ falls für alle $g \in G$ gilt:
+	\[\{g \cdot n | n \in N\} =: gN = Ng := \{n \cdot g | n \in N\}\]
+\end{definition}
+
+\begin{proposition}
+	Sei $N$ ein Normalteiler von $G$, dann ist $G \setminus N$ mit obiger Verknüpfung eine Gruppe.
+\end{proposition}
+
+\begin{proposition}
+	Sei $\varphi : G \to H$ ein Gruppenhomomorphismus, dann gilt
+	\begin{enumerate}
+		\item $\ker{\varphi}$ ist ein Normalteiler von $G$
+		\item $\varphi$ induziert einen Isomorphismus von Gruppen $\bar{\varphi}: G\setminus \ker{\varphi} \to \Ima{(\varphi)}, [g] \mapsto \varphi(g)$
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}{(Ring)}
+	Ein \textbf{Ring} ist eine Menge $R$ mit zwei inneren Verknüpfungen $+, \cdot$ so, dass $(R, +)$ eine abelesche Gruppe ist und $\cdot$ eine assoziative Verknüpfung für $R$ mit einem neutrales Element (\textbf{Einselement}) ist. Es sollen für alle $a, b, c \in R$ gelten:
+	\begin{itemize}
+		\item $a \cdot (b + c) = a \cdot b + a \cdot c$
+		\item $(b + c) \cdot a = b \cdot a + c \cdot a$
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	Ein Ring $R$ heisst \textbf{kommutativ}, falls $\forall a, b \in R$ gilt: $a \cdot b = b \cdot a$. Das neutrale Element bezüglich der Addition $+$ bezeichnen wir mit $0$ und das Inverse von $a$ mit $-a$. Wir schreiben $a - b$ für $a + (-b)$. Der Einselement der Multiplikation bezeichnen wir mit $1$. 
+\end{remark}
+
+\begin{definition}{(Kürper)}
+	Ein \textbf{Körper} ist ein kommutativer Ring $K$ so, dass $K \setminus \{0\}$ mit der Multiplikation als Verknüpfung eine Gruppe ist. Insbesondere ist $0 \neq 1$.
+\end{definition}
+
+\begin{remark}
+	Es gelten folgende Rechenregeln für alle $a, b, c \in R$:
+	\begin{enumerate}
+		\item $a \cdot 0 = 0 \cdot a = 0$
+		\item Das Einselement ist eindeutig. Wenn $1 = 0$, dann ist $R = \{0\}$
+		\item $-a = (-1)\cdot a$
+		\item $a \cdot (b - c) = a\cdot b - a\cdot c$ und $(b - c) \cdot a = b \cdot a - c \cdot a$
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}{(Ringhomomorphismus)}
+	Es seien $R$ und $S$ zwei Ringe und $\varphi : R \to S$ eine Abbildung. Dann heisst $\varphi$ ein \textbf{Ringhomomorphismus} falls für alle $a, b, c \in R$ gilt
+	\[\varphi(a \cdot b + c) = \varphi(a)\cdot \varphi(b) + \varphi(c) \text{ und } \varphi(1_R) = \varphi(1_S)\]
+\end{definition}
+
+\begin{proposition}
+	$\mathbb{Z} \setminus m\mathbb{Z}$ ist genau dann ein Körper, wenn $m$ ein Primzahl ist.
+\end{proposition}	
+
+\begin{definition}{(Polynom)}
+	Ein \textbf{Polynom} ist eine Folge $(a_i)_{i \in \mathbb{N}_0}$ von Elementen aus $K$, so dass nur endlich viele $a_i \neq 0$. Wir definieren $x := (\delta_{i, 1})_{i \in \mathbb{N}_0}$. Die Menge aller Polynome mit Koeffizienten in $K$ bezeichnen wir als $K[x]$.
+\end{definition} 
+
+\begin{remark}
+	Zwei Polynome $(a_i)_{i \in \mathbb{N}_0}$ und $(b_i)_{i \in \mathbb{N}_0}$ sind per Definition gleich, wenn $a_i = b_i$ für alle $i \in \mathbb{N}_0$.
+\end{remark}
+
+\begin{proposition}
+	Mit den Operation $+$ und $\cdot$ wird $K[x]$ zu einem kommutativer Ring.
+\end{proposition}
+
+\begin{proof}
+	Für ein Polynom $(a_i)_{i \in \mathbb{N}_0} \in K[x]$ gilt
+	\[(a_i)_{i \in \mathbb{N}_0} = \sum_{i \in \mathbb{N}_0}a_i x^i\]
+	Dann ist $+$ (bzw. $\cdot$) die übliche Addition (bzw, Multiplikation) von Polynomen. 
+\end{proof}
+
+\begin{definition}{(Leitkoeffizienten und Grad)}
+	Es sei $p = \sum_{i \in \mathbb{N}_0} a_{i}x^{i} \in K[x]$ und $m$ maximal mit $a_m \neq 0$. Dann heisst $a_m$ der \textbf{Leitkoeffizient} von $p$. In diesem Fall definieren wir den \textbf{Grad} von $p$ als $\deg p = m$. Konvention: $\deg(0)_{i \in \mathbb{N}_0} = -\infty$.
+\end{definition}
+
+\begin{proposition}
+	Sei $\alpha \in K$ gegeben, dann ist die Abbildung
+	\[\pi_{\alpha}: K[x] \to K; p\mapsto p(\alpha):=\sum_{i\in\mathbb{N}_0}a_{i}\alpha^{i}\]
+	ein Ringhomomorphismus, der \textbf{Einsetzungshomomorphismus}.
+\end{proposition}
+
+\begin{definition}{(Nullstelle von Polynome)}
+	Sie $\alpha \in K$ gegeben. Dann heisst $\alpha$ eine \textbf{Nullstelle} von $p \in K[x]$ falls $\pi_{\alpha}(p) = p(\alpha) = 0$.
+\end{definition}
+
+\begin{proposition}
+	Für Polynome $p, q \in K[x]$ gilt:
+	\begin{enumerate}
+		\item $\deg{(p + q)} \leq \max{\deg{p}, \deg{q}}$. Falls $\deg{p} \neq \deg{q}$, dann gilt $=$.
+		\item $\deg{(p \cdot q)} = \deg{p} + \deg{q}$.
+	\end{enumerate}	
+\end{proposition}
+
+\begin{corollary}
+	Im Ring $K[x]$ gilt die Kürzungsregel
+	\[p \cdot q = p \cdot r \wedge p \neq 0 \implies q = r\]
+	und er ist \textbf{nullteilerfrei}
+	\[p \cdot q = 0 \implies p = 0 \vee q = 0\]
+\end{corollary}
+
+\begin{theorem}{(Polynomdivision)}
+	Für $p, q \in K[x]$ mit $q \neq 0$ gibt es eindeutige $a, b \in K[x]$ mit 
+	\[p = a\cdot q + b \wedge \deg{b} < \deg{q}\]
+\end{theorem}
+
+\begin{corollary}
+	Sei $\alpha \in K$ eine Nullstelle von $p \in K[x]$. Dann $\exists!q \in K[x]$ mit $\deg{q} = \deg{p} - 1$ und 
+	\[p = (x - \alpha) \cdot q\]
+\end{corollary}
+
+\begin{corollary}
+	Sei $p \in K[x]$ ein Polynom vom Grad $m$. Dann hat $p$ höchstens $m$ paarweise verschiedene Nullstellen.
+\end{corollary}
+\end{document}
