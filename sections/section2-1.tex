@@ -1,0 +1,43 @@
+\documentclass[../Algebra_script.tex]{subfiles}
+\begin{document}
+
+\begin{definition}{(Lineares Gleichungssystem)}
+	Es sei $K$ ein Körper, $m, n \in \mathbb{N}, a_{ij}, b_i \in K$. Dann nennt man
+	\[\begin{matrix}
+		a_{1,1}x_1 &+ &a_{1,2}x_2 &+ &\ldots &+ &a_{1,n}x_n &= &b_1 \\
+		a_{2,1}x_1 &+ &a_{2,2}x_2 &+ &\ldots &+ &a_{2,n}x_n &= &b_2\\
+		 \vdots    &  &\vdots     &  &       & &\vdots     & &\vdots\\
+		a_{m,1}x_1 &+ &a_{m,2}x_2 &+ &\ldots &+ &a_{m,n}x_n &= &b_m 
+	\end{matrix}\]	
+	ein \textbf{lineares Gleichungssystem (LGS)}, wobei die Menge aller $(x_1, \ldots, x_n) \in K^n$ gesucht ist, die alle Gleichungen erfüllen.	
+\end{definition}
+
+\begin{definition}{(Matrix)}
+	Etwas kompakter: Für $n, m \in \mathbb{N}$ und $a_{ij} \in K$, nennt man
+	\[A_{m,n} = 
+		\begin{pmatrix}
+			a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+			a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+			\vdots  & \vdots  & \ddots & \vdots  \\
+			a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+ 		\end{pmatrix}
+ 	\]
+ 	eine $m \times n$-\textbf{Matrix}, die Zahlen $a_{ij}$ heissen \textbf{Einträge} oder \textbf{Elemente} der Matrix.
+\end{definition}
+
+\begin{definition}{(Operationen mit Matrizen)}
+	Die Menge aller $m \times n$-Matrizen mit Einträgen in $K$ bezeichnen wir mit $M_{m,n}(K)$.
+	\begin{enumerate}
+		\item Es seien $A = (a_{ij})_{1 \leq i \leq m, 1 \leq j \leq n}, B = (b_{ij})_{1 \leq i \leq m, 1 \leq j \leq n} \in M_{m, n}(K)$. Dann definieren wir $A + B \in M_{m, n}(K)$ durch
+		\[(A + B) := C = (c_{ij})_{1 \leq i \leq m, 1 \leq j \leq n} \text{ wobei } c_{ij} := a_{ij} + b_{ij} .\]
+		\item Es seien $A \in M_{m, n}(K)$ und $B \in M_{n, \ell}(K)$. Dann definieren wir $A \cdot B \in M_{m, \ell}(K)$ durch
+		\[(A \cdot B) := C = (c_{ij})_{1 \leq i \leq m, 1 \leq j \leq \ell} \text{ wobei } c_{ij} := \sum_{k=1}^{n} a_{ik}b_{kj} .\]  
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Das lineare Gleichungssystem $Ax = b$ heisst \textbf{homogen}, falls $b = 0$, ansonsten heisst es \textbf{inhomogen}
+\end{definition}
+
+
+\end{document}
