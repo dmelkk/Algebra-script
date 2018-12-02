@@ -39,5 +39,52 @@
 	Das lineare Gleichungssystem $Ax = b$ heisst \textbf{homogen}, falls $b = 0$, ansonsten heisst es \textbf{inhomogen}
 \end{definition}
 
+\begin{remark}
+	Jedes homogene LGS besitzt immer die \textbf{triviale Lösung} $x = 0$. Wir suchen also vor allem Lösungen $x \neq 0$.
+	
+	Für ein LGS $Ax = b$ betrachten wir die \textbf{erweiterte Koeffizientenmatrix} $(A | b)$:
+	\[(A | b) = 
+		\left(\begin{array}{cccc|c}
+			a_{1,1} & a_{1,2} & \cdots & a_{1,n} &b_1\\
+			a_{2,1} & a_{2,2} & \cdots & a_{2,n} &b_2\\
+			\vdots  & \vdots  & \ddots & \vdots  &\vdots\\
+			a_{m,1} & a_{m,2} & \cdots & a_{m,n} &b_m
+ 		\end{array}\right)
+ 	\]
+\end{remark}
 
+\begin{definition}{(Gaussalgorithmus)}
+	\textbf{Bestandteil des Gaussalgorithmus:}
+	\begin{enumerate}
+		\item Vorwärtselimination ($\to$ erreiche \textbf{Zeilenstufenform})
+		\item Lösbarkeitsentscheidung
+		\item Rückwärtssubstitution ($\to$ Unterscheidung \textbf{freie und abhängige Variable})
+	\end{enumerate}
+	\textbf{Zeilenstufenform}: Eine Matrix $A \in M_{m, n}(K)$ ist in Zeilenstufenform, wenn es eine Zahl $0 \leq r \leq m$ gibt, so dass
+	\begin{itemize}
+		\item in den ersten $r$-Zeilen jeweils nicht nur Nullen stehen und in den Zeilen $r+1$ bis $m$ nur Nullen stehen
+		\item $j_1 < j_2 < \ldots < j_r$ wobei für $1 \leq i \leq r, j_i$ den minimale Index, so dass $a_{i,j_i} \neq 0$ ist.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}
+	Der Gaussalgorithm liefert nach endlich vielen Schritten entweder alle Lösungen des inhomogenen LGS oder endet mit einer negativen Entscheidung über Lösbarkeit des LGS.
+\end{proposition}
+
+Es sei $G$ eine abelesche Gruppe, dann ist $G^n$ auch eine abelesche Gruppe.
+
+\begin{definition}
+	Es sei $\End(G^n) = \{f : G^n \to G^n | f \text{ ist Gruppenhomomorphismus } \}$. Wir definiern
+	\[+ : \End(G^n) \times \End(G^n) \to \End(G^n), \; (f_1, f_2) \mapsto \big(\underline{g} \mapsto f_1(\underline{g}) + f_2(\underline{g})\big)\]
+	und
+	\[\circ : \End(G^n) \times \End(G^n) \to \End(G^n), \; (f_1, f_2) \mapsto \big(\underline{g} \mapsto f_1(\underline{g})f_2(\underline{g})\big)\]
+\end{definition}
+
+\begin{proposition}
+	$\End(G^n)$ ist ein Ring.
+\end{proposition}
+
+\begin{proposition}
+	Die Menge $M_{n,n}(K)$ mit Addition und Multiplikation bildet einen Ring.
+\end{proposition}
 \end{document}
