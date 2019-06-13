@@ -1,0 +1,42 @@
+\documentclass[../Algebra_scipt.tex]{subfiles}
+\begin{document}
+
+    \begin{definition}[Köcher]
+        Ein Quadruopel $Q = (Q_0, Q_1, s, t)$ bestehend aus Mengen $Q_0, Q_1$ und Abbildungen $s,t: Q_1 \to Q_0$ nennen wir \textbf{Köcher}. Wir nennen die
+        Elementen in $Q_1$ die \textbf{Pfeile} und die Elemente aus $Q_0$ die \textbf{Knoten} des Köchers. Für $\alpha \in Q_1$ schreiben wir $s(\alpha)
+        \xlongrightarrow{\alpha} t(\alpha)$. Der Köcher heisst endlich, falls $Q_0$ und $Q_1$ jeweils endlich sind.
+    \end{definition}
+
+    \begin{definition}[Darstellung]
+        Eine \textbf{Darstellung} $V = (V_{i}, f_{\alpha})_{i\in Q_0, \alpha \in Q_1}$ eines Köchers $Q$ ist eine Familie von $K$-Vektorräumen $(V_{i})_{i\in
+        Q_0}$ zusammen mit lineare Abbildungen $\left(f_{\alpha}:V_{s(\alpha)} \to V_{t(\alpha)}  \right)_{\alpha \in Q_1} $.
+    \end{definition}
+
+    \begin{definition}
+        Es sei V eine Darstellung eines endliches Köchers $Q$. Falls $\dim V_{i} < \infty$ für alle $i \in Q_0$, so sagen wir die Darstellung ist
+        endlich-dimensional und notieren den \textbf{Dimensionsvektor}
+        \begin{align*}
+            \underline{\dim} V = \left(\dim V_{i}\right)_{i\in Q_0}
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Morphismus]
+        Es sei $Q$ ein Köcher und $V = (V_{i}, f_{\alpha}$, $W = (W_{i}, g_{\alpha}$ Darstellungen von $Q$. Eine Abbildung (Morphismus) zwischen $V$ und $W$ ist
+        eine Familie $\phi = (\phi_{i})_{i\in Q_0}$ von linearen Abbildungen $\phi_{i}: V_{i}\to W_{i}$ so, dass für alle $\alpha \in Q_1$ gilt:
+        \begin{align*}
+            \phi_{t(\alpha)} \circ f_{\alpha} = g_{\alpha} \circ \phi_{s(\alpha)}
+        .\end{align*}
+        Ein Isomorphismus von Darstellung ist ein Morphismus bei dem alle $\phi_{i}$ invertierbar sind. Wir sagen dann, dass $V$ und $W$ isomorph sind.
+    \end{definition}
+
+    \begin{definition}
+        Es seien $V = (V_{i}, f_{\alpha})$ und $W = (W_{i}, g_{\alpha})$ Darstellungen von $Q$, dann ist $M = (M_{i}, h_{\alpha}) = V \oplus W$, die
+        \textbf{direkte Summe von Darstellungen}, eine Darstellung von $Q$ mit $M_{i} = V_{i} \oplus W_{i}$ und $h_{\alpha} = (f_{\alpha}, g_{\alpha})$
+    \end{definition}
+
+    \begin{definition}[Unzerlegbare Darstellung]
+        Es sei $V \neq 0$ eine Darstellung von $Q$, dann heisst $V$ unzerlegbar falls aus $V \cong  V_1 \oplus V_2$ stets $V_1 =0$ oder $V_2 = 0$ folgt.
+    \end{definition}
+
+
+\end{document}

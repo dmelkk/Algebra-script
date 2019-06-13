@@ -1,0 +1,132 @@
+\documentclass[../Algebra_script.tex]{subfiles}
+\begin{document}
+    \begin{definition}[Bilinearform]
+        Es sei $V$ ein $K$-Vektorraum. Eine Bilinearform $b$ auf $V$ ist eine Abbildung $b:V \times V \to K$, die bilinear ist, d.h. linear in beiden
+        Argumenten:
+        \begin{align*}
+            b(\lambda v_1 + v_2, w) = \lambda b(v_1,w) + b(v_2,w)\\
+            b(v, \mu w_1 + w_2) = \mu b(v,w_1) + b(v, w_2)
+        \end{align*}
+        für alle $\lambda, \mu \in K, v, w, v_1, v_2, w_1, w_2 \in V$.
+    \end{definition}
+
+    \begin{definition}[Gramsche Matrix]
+        Es sei $dim V < \infty$ und $(v_1,\ldots v_{n})$ eine Basis von $V$. Wir nennen die Matrix $A_{B}(b) = (a_{ij}) \in M_{n,n}(K)$, difiniert durch
+        $(a_{ij}) = b(v_{i},v_{j})$, die Matrix zur Bilinearform $b$ bezüglich der Basis $B$ oder auch \textbf{Gramsche Matrix}.
+    \end{definition}
+
+    \begin{definition}[Sequilinearform]
+        Es sei $V$ ein $\mathbb{C}$-Vektorraum. Eine Abbildung $b:V\times V \to \mathbb{C}$ heisst Sequilinearform auf $V$ falls
+        \begin{align*}
+            b(\alpha v_1 + v_2, w) &= \alpha b(v_1, w) + b(v_2,w) \text{ linear in 1. Argument}\\
+            b(v, \alpha w_1 + w_2) &= \overline{\alpha} b(v, w_1) + b(v, w_2) \text{ konjugiert linear in 2. Argument}
+        .\end{align*}
+        für alle $\alpha \in \mathbb{C}, v, w, v_1, v_2, w_1, w_2 \in V$
+    \end{definition}
+
+    \begin{definition}[kongruent]
+        Zwei Matrizen $A_1, A_2 \in M_{n,n}(\mathbb{C})$ heissen \textbf{kongruent} wenn es ein $B \in GL_{n}(\mathbb{C})$ gibt, so dass $A_1 = B^{t}A_2
+        \overline{B}$ gibt.
+    \end{definition}
+
+    \begin{definition}[Orthogonal]
+        Es sei $b$ eine Bilinearform auf $V$. Wir sagen $v \in V$ ist \textbf{orthogonal} zu $w \in V$ bezüglich $b$, wenn $b(v, w) = 0$. Wir schreiben dann $v
+        \perp w$. Für $S \subset V$ definieren wir
+        \begin{align*}
+            S^{\perp} := \{w \in V | b(v, w) = 0 \: \forall v \in S\}
+        .\end{align*}
+        als Menge aller Vektoren, die \textbf{rechtsorthogonal} auf $S$ bzgl. $b$ sind. Analog ist die Menge der \textbf{linksorthogonalen} Vektoren auf $S$ 
+        \begin{align*}
+            {}^{\perp}S := \{w \in V | b(w, v) = 0 \: \forall v \in S\}
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Nicht ausgeartet]
+        Eine Bilinearform $b$ auf $V$ heisst \textbf{nicht ausgeartet}, wenn $V^{\perp} = 0$ und ${}^{\perp}V = 0$.
+    \end{definition}
+
+    \begin{definition}[Symmetrisch/ Hermitesch]
+        Es sei $V$ ein $K$-Vektorraum und $b$ eine Bilinearform auf $V$. Dann heisst $b$ \textbf{symmetrisch}, falls $b(v, w) = b(w, v)$ für alle $v, w \in V$.
+
+        Es sei $V$ ein $\mathbb{C}$-Vektorraum und $b$ eine Sequilinearform auf $V$. dann heisst $b$ \textbf{hermitesch}, falls $b(v, w) = \overline{b(w, v)}$ 
+        für alle $v, w \in V$.
+    \end{definition}
+
+    \begin{definition}[Quadratische Form]
+        Eine \textbf{quadratische Form} auf $V$ ist eine Funktion $q: V \to K$ mit folgende Eigenschaften
+        \begin{align*}
+            &q(\alpha v) = \alpha^2 q(v), \forall \alpha in K, v \in V.\\
+            &b_{q} : V \times V \to K, b_{q}(v, w) := q(v + w) - q(v) - q(w) \text{ ist eine Bilinearform auf } V.
+        .\end{align*}
+        $b_{q}$ heisst die zu $q$ \textbf{assozierte (symmetrische) Bilinearform}.
+    \end{definition}
+
+    \begin{definition}[Orthonormalbasis]
+        Es sie $b$ eine symmetrische oder hermitesche Form auf $V$.
+        \begin{itemize}
+            \item Eine Orthogonalbasis von $V$ ist eine Basis $B = \{v_{i}| i \in I\}$ so, dass $b(v_{i}, v_{j}) = 0$ für $i\neq j$.
+            \item Eine Orthogonalbasis mit $b(v_{i}, v_{i}) = 1$ für alle $i \in I$ heisst Orthonormalbasis.
+            \item Allgemein heisst jede Familie von Vektoren $\{x_{i} | i \in I\}$ eine orthogonale Familie falls $b(x_{i},x_{j}) = 0$ für $i \neq j$, und
+                orthonormal falls auch $b(x_{i},x_{i}) = 1$ für alle $i \in I$.
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}[Hauptminor]
+        Es sei $A$ eine $n \times n$-Matrix und $1 \le k \le n$. Der $k$-\textbf{Hauptminor} $D_{k}$ von $A$ ist die Determinant der $k \times k$-Matrix mit dem
+        Einträgen $(a_{ij})_{1\le i,j \le k}$
+    \end{definition}
+
+    \begin{definition}
+        Es sei $b$ eine hermitesche Form auf $V$. Dann $b$ heisst:
+        \begin{itemize}
+            \item \textbf{positiv definit}, falls $\forall v \in V\setminus\{0\}: b(v,v) > 0$
+            \item \textbf{negativ definit}, falls $\forall v \in V \setminus \{0\}: b(v,v) < 0$
+            \item \textbf{positiv semidefinit}, falls $\forall v \in V \setminus \{0\}: b(v,v) \ge 0$
+            \item \textbf{negativ semidefinit}, falls $\forall v \in V \setminus \{0\}: b(v, v) \le 0$ 
+            \item \textbf{indefinit}, falls $\exists v, w \in V: b(v,v) > 0 \wedge b(w,w) <0$
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}[Signatur]
+        Es sei nun $b$ entweder eine reell-symmetrische oder komplex-hermitesche Form. Weiter sei $V$ endlichdimensional, also finden wir für $b$ eine
+        Orthogonalbasis $B = (v_1, \ldots v_{n})$. Es sei $c_{i} = b(v_{i}, v_{i})$. Falls $c_{i} \neq 0$, so normieren wir $v_{i}$ durch
+        $\frac{1}{\sqrt{c_{i}}}v_{i}$. Damit erhalten wir für die Gramsche Matrix 
+        \begin{align*}
+            E_{n}^{p,q} = diag(\underbrace{1, \ldots, 1}_{p}, \underbrace{-1, \ldots, -1}_{q}, 0, \ldots, 0).
+        .\end{align*}
+        Weiter definieren wir für $b$ die \textbf{Signatur} $(p, q)$ und wir sagen $b$ ist \textbf{vom Typ} $(p, q)$. Eine hermitesche Matrix ist \textbf{vom
+        Typ} $(p, q)$ wenn sie die Matrix einer hermiteschen Form vom Typ $(p, q)$ ist.
+    \end{definition}
+
+    \begin{definition}[Skalarprodukt]
+        Eine positiv-definite, nicht-ausgeartete, hermitesche Sequilinearform auf $V$ heisst \textbf{Skalarprodukt} auf $V$.
+        \begin{itemize}
+            \item Ein \textbf{euklidischer Vektorraum} ist ein endlich-dimensionaler reeller Vektorraum mit einem gegebenen Skalarprodukt $\langle -,
+                - \rangle$.
+            \item Ein \textbf{unitärer Vektorraum} ist ein endlich- dimensionaler komplexer Vektorraum mit einem gegebenen Skalarprodukt.
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}[Seminorm]
+        Es sei $V$ ein $K$-Vektorraum $(K = \mathbb{R}, \mathbb{C})$. Eine Funktion $\|\cdot\| : V \to \mathbb{R}$ heisst \textbf{Seminorm}, wenn folgende
+        Axiome erfüllt sind 
+        \begin{align*}
+            &\|\alpha v\| = |\alpha|\|v\|\\
+            &\|v + w\| \le \|v\| + \|w\| \: \text{\textbf{Dreiscksungleichung}}
+        .\end{align*}
+        für alle $\alpha \in K, v,w \in V$. Falls zusätzlich
+        \begin{align*}
+            \|v\| = 0 \implies v = 0
+        .\end{align*}
+        erfüllt ist, so sprechen wir von einer \textbf{Norm}
+    \end{definition}
+
+    \begin{definition}[Metrik]
+        Eine \textbf{Metrik} auf $V$ ist eine Funktion $d:V \times V \to K$ mit 
+        \begin{itemize}
+            \item $\forall x,y \in V: d(x,y) \ge 0$ und $d(x,y) = 0$ genau dann wenn $x=y$.
+            \item $\forall x, y \in V: d(x, y) = d(y, x)$.
+            \item $\forall x, y, z \in V: d(x, z) \le d(x, y) + d(y, z)$.
+        \end{itemize}
+    \end{definition}
+\end{document}

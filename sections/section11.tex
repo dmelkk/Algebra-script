@@ -1,0 +1,92 @@
+\documentclass[../Algebra_script.tex]{subfiles}
+\begin{document}
+    \begin{definition}[Projection]
+        Es sei $V$ ein $K$-Vktorraum und $p \in End(V)$. Dann heisst $p$ eine \textbf{Projektion}, wenn $p^2 = p$.
+    \end{definition}
+
+    \begin{proposition}
+        Es sei $p \in \End(V)$ ein Projektion, dann gilt
+        \begin{align*}
+            V = Im(p) \oplus  Ker(p)
+        \end{align*}
+        Falls $\dim V < \infty$, so ist $p$ diagonalisierbar mit den Eigenwerte $1$ und $0$
+    \end{proposition}
+
+    \begin{definition}[Orthogonale Projektion]
+        Es sei $V$ ein unitäre Raum, $W \subseteq V$ und $W \oplus W^{\perp} = V$, dann nennen wir die kanonische Abbildun $p_{W}:V \to W$, \textbf{orthogonale
+        Projektion} von $V$ auf $W$ längs $W^{\perp}$.
+    \end{definition}
+
+    \begin{proposition}
+        Es sei $V$ ein unitärer Raum und $p: V \to V$ eine Projektion. Dann ist $p$ genau dann eine orthogonale Projektion, wenn für alle $x \in V$ gilt
+        \begin{align*}
+            \|p(x)\| \le \|x\| \; \text{Besselsche Ungleichung}
+        \end{align*}
+        In diesem Fall gilt: $\|p(x)\| = \|x\|$ genau dann, wenn $x \in p(V)$.
+    \end{proposition}
+
+    \begin{proposition}
+        Es sei $V$ ein unitärer Raum unt $p: V \to V$ eine Projektion. Dann ist $p$ genau dann orthogonale Projektion, wenn für alle $x,y \in V$ gilt
+        \begin{align*}
+            \langle p(x), y \rangle = \langle x, p(y) \rangle
+        .\end{align*}
+    \end{proposition}
+    
+    \begin{satz}
+        Es sei $V$ ein unitärer Raum, $W \subseteq V$ ein Unterraum mit $V = W \oplus W^{\perp}$. Für alle $x \in V$ ist $p_{W}(x)$ der eindeutig bestimmte
+        Vektor $y \in W$, für den der Abstand $d(x, y) = \|x - y\|$ minimal ist.
+    \end{satz}
+
+    \begin{proposition}
+        Bedingungen wie oben und es sei $(w_1 \ldots w_{s})$ eine Orthonormalbasis von $W$. Dann ist 
+        \begin{align*}
+            p_{W}(x) = \sum_{i=1}^{s} \langle x, w_{i} \rangle w_{i}
+        .\end{align*}
+    \end{proposition}
+    
+    \begin{definition}[Isometrie]
+        Es sei $V$ ein $K$-Vektorraum mit hermiteschen Form $b$. $f \in End(V)$ heisst \textbf{isometisch} oder eine \textbf{Isometrie}, wenn $\forall v, w \in
+        V$ gilt
+        \begin{align*}
+            b(f(v), f(w)) = b(v, w)
+        .\end{align*}
+        Einen isometischen Isomorphismus nennen wir auch \textbf{Kongruenzabbildung}
+    \end{definition}
+
+    \begin{definition}
+        \begin{itemize}
+            \item Eine Matrix $A \in M_{n,n}(\mathbb{R})$ heisst \textbf{orthogonal}, wenn $E_{n} = A^{t}A$ ist.
+            \item Eine Matrix $A \in M_{n,n}(\mathbb{C})$ heisst \textbf{unitär}, wenn $E_{n} = A^{t}\overline{A}$ ist.
+            \item Die \textbf{orthogonale Gruppe} ist definiert als  $O_{n}=\{A \in M_{n,n}(\mathbb{R}) | A \;\text{ist orthogonal}\}$.
+            \item Die \textbf{unitäre Gruppe} ist definiert als $U_{n}=\{A \in M_{n,n}(\mathbb{C}) | A \; \text{ist unitär}\}$
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}[Adjungierte Operation]
+        Es sei $V$ ein $K$-Vektorraum mit einer nicht-ausgearteten hermiteschen Form $\langle,\rangle$. Dann hessen zwei lineare Abbildungen $f$ und $g$
+        \textbf{adjungiert bezüglich} $\langle, \rangle$, wenn $\forall v, w \in V$ gilt
+        \begin{align*}
+            \langle f(v), w \rangle = \langle v, g(w) \rangle
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Selbstadjungiert]
+        Es sei $V$ ein Vektorraum mit Skalarprodukt. Ein $f \in End(V)$ heisst \textbf{selbstadjungiert}, wenn $f = \hat{f}$, d.h. $\forall v, w \in V$ gilt
+        \begin{align*}
+            \langle f(v), w \rangle = \langle v, f(w) \rangle
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Normale Operatoren]
+        Es sei $V$ ein Vektorraum mit Skalarprodukt, $f \in End(V)$ und $\hat{f}$ existiere. Wir nennen $f$ \textbf{normal} falls $f\circ \hat{f} = \hat{f}
+        \circ f$ ist.
+    \end{definition}
+
+    \begin{definition}
+        Es sei $f \in End(V)$, V ein komplexer Vektorraum mit Skalarprodukt, und es existiere $\hat{f}$. Dann nennen wir
+        \begin{align*}
+            f_1 := \frac{1}{2}(f + \hat{f}) \; , \; f_2 := \frac{1}{2\imath}(f-\hat{f})
+        .\end{align*}
+        die \textbf{selbstadjungierte Komponenten} von $f$.
+    \end{definition}
+\end{document}

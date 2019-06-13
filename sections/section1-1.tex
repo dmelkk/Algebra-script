@@ -2,40 +2,40 @@
 \begin{document}
 
 \begin{definition}{(Gruppe)}
-	Eine \textbf{Gruppe} ist eine nicht-leere Menge $G$ versehen mit einer inneren Verknüpfung $G \times G \to G, (a, b) \mapsto a \cdot b$, die folgende Axiomen genügt:
-	\begin{enumerate}
-		\item{\textbf{Asoziativität}} $\forall a, b, c \in G: (a \cdot b) \cdot c = a \cdot (b \cdot c)$
-		\item{\textbf{neutrales Element}} $\exists e \in G : \forall a \in G : a \cdot e = e \cdot a$
-		\item{\textbf{inverses Element}} $\forall a \in G \exists a^{-1} \in G : a \cdot a^{-1} = a^{-1} \cdot a = e$
-	\end{enumerate}
-	Die Gruppe $G$ heisst \textbf{kommutativ} (oder \textbf{abelsch}), falls
-	\begin{enumerate}[resume]
-		\item{\textbf{Kommutavität}} $\forall a, b \in G : a \cdot b = b \cdot a$
-	\end{enumerate} 
+    Eine \textbf{Gruppe} ist eine nicht-leere Menge $G$ versehen mit einer inneren Verknüpfung $G \times G \to G, (a, b) \mapsto a \cdot b$, die folgende Axiomen genügt:
+    \begin{enumerate}
+        \item{\textbf{Asoziativität}} $\forall a, b, c \in G: (a \cdot b) \cdot c = a \cdot (b \cdot c)$
+        \item{\textbf{neutrales Element}} $\exists e \in G : \forall a \in G : a \cdot e = e \cdot a$
+        \item{\textbf{inverses Element}} $\forall a \in G \exists a^{-1} \in G : a \cdot a^{-1} = a^{-1} \cdot a = e$
+    \end{enumerate}
+    Die Gruppe $G$ heisst \textbf{kommutativ} (oder \textbf{abelsch}), falls
+    \begin{enumerate}[resume]
+        \item{\textbf{Kommutavität}} $\forall a, b \in G : a \cdot b = b \cdot a$
+    \end{enumerate} 
 \end{definition}
 
 \begin{example}{$(\mathbb{Z}, +)$}
-	\begin{itemize}
-		\item{G1:} $(a + b) + c = a + (b + c)$
-		\item{G2:} $e = 0 : 0 + a = a + 0 = a$
-		\item{G3:} $a^{-1} = -a: (-a) + a = a + (-a) = 0$
-		\item{G4:} $a + b = b + a$
-	\end{itemize}
-	$\forall a, b, c \in \mathbb{Z}$
+    \begin{itemize}
+        \item{G1:} $(a + b) + c = a + (b + c)$
+        \item{G2:} $e = 0 : 0 + a = a + 0 = a$
+        \item{G3:} $a^{-1} = -a: (-a) + a = a + (-a) = 0$
+        \item{G4:} $a + b = b + a$
+    \end{itemize}
+    $\forall a, b, c \in \mathbb{Z}$
 \end{example}
 \begin{example}{$(S_m, \circ)\; \sigma_1 \circ \sigma_2: \{1, \ldots, m\} \to \{1, \ldots, m\}$}
 
-	$S_m = \big\{ \sigma \{1, \ldots, m\} \to \{1, \ldots, m\}| \sigma - \text{Bijektiv}\big\}$
-	\begin{itemize}
-		\item{G2:} $e = id = \left(
-			\begin{array}{c}
-				1, \ldots, m\\
-				1, \ldots, m
-			\end{array}
-			\right) = (1)(2), \ldots, (m)$
-		\item{G3:} Sei $\sigma \in S_m: \sigma \circ \sigma^{-1} = e = \sigma^{-1}\circ \sigma$
-		\item{G4:} $(1\; 2)(2\; 3) \neq (2\; 3)(1\; 2)$
-	\end{itemize}
+    $S_m = \big\{ \sigma \{1, \ldots, m\} \to \{1, \ldots, m\}| \sigma - \text{Bijektiv}\big\}$
+    \begin{itemize}
+        \item{G2:} $e = id = \left(
+            \begin{array}{c}
+                1, \ldots, m\\
+                1, \ldots, m
+            \end{array}
+            \right) = (1)(2), \ldots, (m)$
+        \item{G3:} Sei $\sigma \in S_m: \sigma \circ \sigma^{-1} = e = \sigma^{-1}\circ \sigma$
+        \item{G4:} $(1\; 2)(2\; 3) \neq (2\; 3)(1\; 2)$
+    \end{itemize}
 \end{example}
 
 \begin{proposition}

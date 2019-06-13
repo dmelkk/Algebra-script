@@ -1,0 +1,188 @@
+\documentclass[../Algebra_script.tex]{subfiles}
+
+\begin{document}
+    \begin{definition}
+        Ein \textbf{Ring} ist eine Menge $R$ mit zwei inneren Verknüpfungen $+, *$ so, dass $(R, +)$ eine abelshe Gruppe ist und $*$ eine assoziative
+        Verknüpfung für $R$ mit einem neutralen Element (\textbf{Einselement}) ist. Es sollfür alle $a, b, c \in R$ gelten:
+        \begin{align*}
+            a*(b+c) &= a*b + a*c \\
+            (b + c)*a &= b*a + c*a
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}
+        Es seien $R$ und $S$ zwei Ringe und $\phi : R \to S$ eine Abbildung. Dann heisst $\phi$ ein \textbf{Ringhomomorphismus} falls für alle $a, b, c \in R$
+        gilt
+        \begin{align*}
+            \phi(a*b + c) = \phi(a)*\phi(b) + \phi(c) \; \text{und} \; \phi(1_{R}) = 1_{S}
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Ideal]
+        Es sei $R$ ein Ring und $I \subseteq R$ eine Untergruppe (bzgl. $+$ ). Dann heisst $I$ 
+        \begin{itemize}
+            \item ein \textbf{Linksideal} von $R$, falls für alle $r \in R$ und $a\in I: ra \in I$.
+            \item ein \textbf{Rechtsideal} von R, falls für alle $r \in R$ und $a \in I: ar \in I$.
+            \item ein \textbf{(beidseitiges) Ideal} von $R$, falls für alle $r \in R$ und $a \in I: ra \in I \wedge ar \in I$.
+        \end{itemize}
+    \end{definition}
+
+    \begin{proposition}
+        Es sei $\varphi: R \to S$ ein Ringhomomorphismus, dann ist $\ker \varphi$ ein Ideal in $R$. Umgekehrt sei $I \subseteq R$ ein Ideal, dann ist die
+        kanonische Abbildung $\pi: R \to R\setminus I, r\mapsto \overline{r}$ ein Ringhomomorphismus.
+    \end{proposition}
+
+    \begin{definition}[Algebra]
+        Es sei $K$ ein Körper. Ein $K$-Vektorraum $A$ heisst \textbf{Algebra} über $K$, falls es eine Abbildung gibt,
+        \begin{align*}
+            A \times A \to A, (a, b) \mapsto a*b
+        .\end{align*}
+        so, dass $(A, +, *)$ ein Ring mit Eins ist und für alle  $a,b \in A, \lambda \in K$gilt
+        \begin{align*}
+            \lambda(a*b) = (\lambda a)*b = a*(\lambda b)
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Algebrahomomorphismus]
+        Es seien $A_1,A_2$ jeweils $K$-Algebren. Es sei $\phi : A_1 \to A_2$ ein Vektorraumhomomorphismus. Dann heisst $\phi$ \textbf{Algebrenhomomorphismus}
+        wenn $\phi$ auch ein Ringhomomorphismus ist.
+    \end{definition}
+
+    \begin{definition}[Modul]
+        Es sei $R$ ein Ring mit Eins, $M$ eine abelshe Gruppe. Dann ist $M$ ein  $R$-\textbf{Linksmodul}, falls es ein Abbildung gibt
+        \begin{align*}
+            R \times M \to M, (r, m) \mapsto r.m
+        .\end{align*}
+        so, dass für alle $r, s \in R$ und für alle $m ,n \in M$ gilt
+        \begin{align*}
+            &(r*s).m = r.(s.m) \; \text{und} \; 1.m = m\\
+            &(r + s).(m + n) = r.m + s.m + r.n + s.n
+        .\end{align*}
+        Entsprechend isr $R$ ein $R$-\textbf{Reschtsmodul}, falls es eine Abbildung gibt
+        \begin{align*}
+            M \times R, (m, r) \mapsto m.r
+        .\end{align*}
+        so, dass für alle $r,s \in R$ und für alle $n, m\ in M$ gilt
+        \begin{align*}
+            &m.(r*s) = (m.r).s \; \text{und} \; m = m.1\\
+            &(m + n).(r + s) = m.r + m.s + n.r + n.s
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[Untermodul]
+        Es sei $M$ ein $R$-Modul, eine Untergruppe $U \subseteq M$ heisst Untermodul von $M$, falls $\forall r \in R, u \in U: r.u \in U$.
+    \end{definition}
+
+    \begin{definition}[Modul-Homomorphismus]
+        Es seien $N, M$ zwei $R$-Moduln und $\varphi: M \to N$ ein Gruppenhomomorphismus. Dann heisst $\varphi$ ein $R$-\textbf{Modul-Homomorphismus} genau
+        dann, wenn
+        \begin{align*}
+            \forall m \in M, r \in R: \varphi(r.m) = r \varphi(m)
+        .\end{align*}
+        Die Menge der $R$-Modul-Homomorphismen beziechnen wir mit $\hom_{R}(M, N)$.
+        Ein invertierbarer \textbf{Modul-Homomorphismus} heisst Isomorphismus, die Moduln $M$ und $N$ heisst dann \textbf{isomorph}
+    \end{definition}
+
+    \begin{definition}
+        Es seien $M$ und $N$ zwei $R$-Moduln, dann wird $M \times N$ wieder zum einem $R$-Modul durch
+        \begin{align*}
+            r.(m, n) = (r.m, r.n)
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}[direkte Summe]
+        Es sei $M$ ein $R$-Modul, $U_1, U_2 \subseteq M$ $R$-Untermoduln, dann sagen wir $M$ ist \textbf{direkte Summe} von  $U_1$ und $U_2$, $M = U_1 \oplus
+        U_2$, falls $U_1 \cap U_2 = 0$ und $U_1 + U_2 = M$.
+    \end{definition}
+
+    \begin{definition}
+        Es sei $M \neq 0$ ein $R$-Modul. M heisst \textbf{unzerlegbar} falls für alle Untermoduln $U_1, U_2 \subseteq M$ gilt 
+        \begin{align*}
+            U_1 \oplus U_2 = M \implies U_1 = 0 \vee U_2 = 0
+        .\end{align*}
+        Anderfalls heisst $M$ zerlgebar.
+    \end{definition}
+
+    \begin{proposition}
+        Es sei $U \subseteq M$ ein $R$-Untermodul, dann ist $M\setminus \ker \varphi$ isomoph zu $\Im \varphi$.
+
+        Wir erhalten also eine kurze exacte Sequenz
+        \begin{align*}
+            0 \to \ker \varphi \to M \to \Im \varphi \to 0
+        .\end{align*}
+    \end{proposition}
+
+    \begin{definition}[Endlich-erzeugte Moduln]
+        Es sei $R$ ein Ring und $M$ ein $R$-Modul. Ein \textbf{Erzeugendensystem} von $M$ ist eine Teilmenge  $S = \{s_{i} | i \in I\} \subseteq M$ so, dass für
+        jedes $m \in M$ existieren $\{r_{i} | i \in I\}$, wobei nur endlich vile $r_{i} \neq 0$ sind, mit
+        \begin{align*}
+            m = \sum_{i \in I} r_{i}s_{i}
+        .\end{align*}
+        $M$ heisst \textbf{endlich-erzuegt}, falls es ein endliches Erzeugendensystem gibt und \textbf{zyklisch}, falls es ein Erzuegendensystem $S$ gibt, mit
+        $|S| = 1$.
+    \end{definition}
+
+    \begin{example}
+        Sei $M$ eine $R$-Modul, $m_1, \ldots, m_{l} \in M$, dann ist $(m_1, \ldots, m_{l}) = \sum Rm_{i} \subseteq M$ 
+
+        $R = \mathbb{Z}, m_1 = 3, m_2 = 2 \implies (2, 3) = 2\mathbb{Z} + 3\mathbb{Z} = \mathbb{Z} = (1)$ 
+
+        $R = \mathbb{C}[x, y] (xy - 2, x + y) = \mathbb{C}[x,y](xy - 2) + \mathbb{C}[x,y](x + y)$
+
+        $R$ als $R$-Linksmodul $\implies$ Untermodul $\simeq$ Linksideal
+    \end{example}
+
+    \begin{proposition}
+        Es sei $R$ ein Ring, dann ist die Abbildug
+        \begin{align*}
+            \{(\text{Links-})\text{Ideale in}\; R\} \to \{\text{zyklische}\;(\text{Links-})\;\text{Moduln}\;\}\setminus\text{Isomorphie}
+        \end{align*}
+        eine Bijektion.
+    \end{proposition}
+    
+    \begin{definition}[Freier Modul]
+        Es sei $R$ ein Ring und $M$ ein $R$-Modul. Eine \textbf{Basis} von  $M$ ist ein linear unabhängiges Erzeugendensystem von $M$.
+        Wenn $M$ eine Basis besitzt, so nennen wir $M$ einen \textbf{freien Modul} über $R$. Für jede Indexmenge $I$, schreiben wir $R^I$ für den freien
+        $R$-Modul mit einer Basis indiziert durch $I$.
+    \end{definition}
+
+    \begin{proposition}
+        Es sei $M$ ein $R$-Modul und $\{m_{i}|i\in I\}$ eine Teilmenge von $M$. Dann existiert genau ein Modulhomomorphismus
+        \begin{align*}
+            \pi: R^I \to M, e_{i} \mapsto m_{i} \; \text{für alle}\; i \in I
+        .\end{align*}
+        Das gilt insbesondere wenn $\{m_{i}| i \in I\}$ ein Erzeugendensystem von $M$ ist.
+    \end{proposition}
+
+    \begin{definition}[Kring]
+        Einen kommutativen Ring mit $1$ nennen wir einen \textbf{Kring}.
+    \end{definition}
+
+    \begin{definition}
+        Es sei $R \neq 0$ ein Ring. Dann heisst $R$ \textbf{nullteilerfrei}, wenn für alle $a, b \in R$ gilt:
+        \begin{align*}
+            a*b = 0 \implies a = 0 \vee b = 0
+        .\end{align*}
+        Ist $R$ darüber hinaus ein Kring, se nennen wir $R$ einen \textbf{Integritätsbereich}
+    \end{definition}
+
+    \begin{definition}
+        Ein $R$ ein Integritätsberiech. $R$ heisst ein \textbf{euklidischer Ring}, falls eine Funktion $\delta: R \setminus \{0\} \to \mathbb{N}$ existiert mit:
+        \begin{align*}
+            \forall a, b \in R, a \neq 0 \exists q, r \in R: b = qa + r, r \neq 0 \implies \delta(r) < \delta(a)
+        .\end{align*}
+    \end{definition}
+
+    \begin{definition}
+        Es sei $R$ ein Ring, die Menge der \textbf{Einheiten} $R^*$ in $R$ ist die Menge der multiplikativ invertierbaren Elemente.
+        $r \in R$ heisst \textbf{irreduzible} wenn $r$ keine Einheit hat und $r = fg$ impliziert, dass $f \in R^*$ oder $g \in R^*$.
+    \end{definition}
+
+    \begin{definition}
+        Es sei $R$ ein Ring und $\{f_{i}| i \in I\} \subseteq R$. Dann bezeichnet $(\{f_{i} | i \in I\}) = \sum_{i \in I}^{} Rf_{i}R$ das von $\{f_{i} | i \in
+        I\}$ \textbf{erzeugte Ideal} in R.
+        $R$ ist ein Hauptidealring, wenn jedes Ideal in $R$ von einem Element erzeugt wird.
+    \end{definition}
+
+
+\end{document}

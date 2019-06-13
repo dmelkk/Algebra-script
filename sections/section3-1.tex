@@ -1,0 +1,100 @@
+\documentclass[../Algebra_script.tex]{subfiles}
+
+\begin{document}
+
+\begin{definition}{(Vektorraum)}
+	Sei $K$ ein Körper. Ein $K$-\textbf{Vektorraum} ist ein Menge $V$ mit einer \textbf{Addition} $+: V \times V \to V$ und einer \textbf{skalaren Multiplikation} $K \times V \to V, \; (\lambda, \upsilon) \mapsto \lambda \cdot \upsilon$ die folgende Axiomen genügen für alle $\lambda, \mu \in K, \upsilon, \omega \in V$: 
+	\begin{enumerate}
+		\item $(V, +)$ ist eine abeleshe Gruppe.
+		\item $(\lambda + \mu) \cdot \upsilon = \lambda \cdot \upsilon + \mu \cdot \upsilon$ und $\lambda \cdot (\mu + \upsilon) = \lambda \cdot \upsilon + \mu \cdot \upsilon$ 
+		\item $\lambda \cdot (\mu \cdot \upsilon) = (\lambda \cdot \mu) \cdot \upsilon$
+		\item $1 \cdot \upsilon = \upsilon$
+	\end{enumerate}	
+	Die Elementen in einem Vektorraum nennen wir \textbf{Vektoren}.
+\end{definition}
+
+\begin{proposition}
+	Für $\lambda \in K$ und $\upsilon$ aus einem $K$-Vektorraum $V$ gilt:
+	\begin{enumerate}
+		\item $\lambda \cdot 0_V = 0_V$
+		\item $0_K \cdot \upsilon = 0_v$
+		\item $(-\lambda) \cdot \upsilon = \lambda \cdot (-\upsilon) = -(\lambda \cdot \upsilon)$
+		\item $\lambda \cdot \upsilon = 0_V \implies \lambda = 0_K \text{ oder } \upsilon = 0_V$
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}{(Lineare Abbildung)}
+	Eine \textbf{lineare Abbildung} von (oder \textbf{Vektorraumhomomorphismus}) $\phi : V \to W$ zwischen $K$-Vektorräumen $V$ und $W$ ist ein Gruppenhomomorphismus der abeleschen Gruppen $(V, +)$ und $(W, +)$ so, dass $\phi(\lambda\upsilon) = \lambda\phi(\upsilon)$ für alle $\upsilon \in V, \lambda \in K$.
+\end{definition}
+
+
+\begin{proposition}
+	Es sei $\varphi: V \to W$ ein e linerare Abbildund von $K$-Vektorräumen. Dann gilt:
+	\begin{enumerate}
+		\item $\varphi(0) = 0$
+		\item $\varphi(-\upsilon) = -\varphi(\upsilon)$
+		\item Wenn $\psi: W \to U$ eine weitere $K$-lineare Abbildung ist, dann ist $\psi \circ \varphi: V \to U$ eine $K$-lineare Abbildung. 
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}{(Isomorphismus)}
+	Eine $K$-leneare Abbildung $\varphi:V \to W$ heisst \textbf{Isomorphismus}, wenn es eine $K$-lineare Abbildung $\psi:W \to V$ gibt mit:
+	\[\psi \circ \varphi = \mathrm{id}_V \text{ und } \varphi \circ \psi = \mathrm{id}_W\] 
+\end{definition}
+
+\begin{proposition}
+	Sei $\varphi: V \to W$ eine lineare Abbildung. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $\varphi$ ist ein Isomorphismus
+		\item $\varphi$ ist bijektiv.
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}{(Unterraum)}
+	Eine Teilmenge $U$ des $K$-Vektorraums $V$ heisst \textbf{Unterraum} genau dann, wenn folgende Axiome erfüllt sind
+	\begin{enumerate}
+		\item $u_1, u_2 \in U \implies u_1 + u_2 \in U$
+		\item $\lambda \in K, u \in U \implies \lambda u \in U$
+		\item $0 \in U$ 
+	\end{enumerate}
+	(3) ist notwendig um $U = \emptyset$ auszuschliessen.
+\end{definition}
+
+\begin{proposition}
+	Sei $\varphi : V \to W$ eine lineare Abbildung. Dann ist $\ker \varphi$ ein Unterraum von $V$, $\Ima \varphi$ ein Unterraum von $W$.
+\end{proposition}
+
+\begin{proposition}
+	Seien $U_1, U_2$ Unterräume eines Vektorraums $V$, dann ist auch 
+	\[U_1 + U_2 = \{u_1 + u_2 \in V| u_1 \in U_1, u_2 \in U_2\}\]
+	ein Unterraum von $V$. 
+\end{proposition}
+
+\begin{proposition}
+	Sei $(U_i)_{i \in I}$ eine Familie von Unterräumen eines Vektorraums $V$. Dann ist auch $\bigcap_{i \in I} U_i$ eine Unterraum von $V$.
+\end{proposition}
+
+\begin{proposition}
+	Seien $U_1, U_2$ Unterräume eines Vektorraums $V$ und $U := U1 + U2$. Dann sind die folgenden Bedingungen äquivalent
+	\begin{enumerate}
+		\item $U_1 \cap U_2 = \{0\}$ 
+		\item $\forall u \in U$ gilt: $\exists! (u_1, u_2) \in U_1 \times U_2$ mit $u = u_1 + u_2$ 
+	\end{enumerate}
+	Ist eine der beiden Bedingungen erfüllt, so heisst $U$ die \textbf{direkte Summe} von $U_1$ und $U_2$.
+\end{proposition}
+
+\begin{proposition}
+	$V \setminus W$ ist ein $K$-Vektorraum mit den Operationen
+	\[[\upsilon] + [\omega] := [\upsilon + \omega] \text{ und } \lambda[\upsilon] := [\lambda\upsilon]\]
+\end{proposition}
+
+\begin{proposition}
+	Die kanonishe Abbildung $\pi: V \to V\setminus W, \upsilon \mapsto [\upsilon]$ ist eine surjektive , lineare Abbildung mit $\ker(\pi) = W$.
+\end{proposition}
+
+\begin{theorem}{(Homomorphiesatz)}
+	Sei $\varphi: V_1 \to V_2$ eine lineare Abbildung, $W_1 \subset V_1$ ein Unterraum mit $W_1 \subseteq \ker(\phi)$. Dann gibt es geanu eine lineare Abbildung:
+	\[\bar{\varphi}: V_1\setminus W_1 \to V_2\]
+	mit $\bar{\varphi}([\upsilon_1] = \varphi(\upsilon_1)$ für alle $\upsilon_1 \in V_1$.
+\end{theorem}
+\end{document}
